@@ -25,20 +25,20 @@ export const useDiscordInvite = () => {
     setState(prev => ({ ...prev, isLoading: true, error: null }));
 
     try {
-      console.log('Запрос Discord инвайта...');
+      console.log('Requesting Discord invite...');
       
       const { data, error } = await supabase.functions.invoke('get-discord-invite', {
         body: {}
       });
 
       if (error) {
-        console.error('Ошибка Edge Function:', error);
-        throw new Error(error.message || 'Не удалось получить Discord инвайт');
+        console.error('Edge Function error:', error);
+        throw new Error(error.message || 'Failed to get Discord invite');
       }
 
       // Check if Edge Function returned a business logic error (HTTP 200 but with error message)
       if (data?.error) {
-        console.log('Получена ошибка бизнес-логики:', data.error);
+        console.log('Business logic error received:', data.error);
         throw new Error(data.error);
       }
 
@@ -46,10 +46,10 @@ export const useDiscordInvite = () => {
       const inviteData: DiscordInviteData | null = data?.data || data;
       
       if (!inviteData || !inviteData.invite_url) {
-        throw new Error('Нет доступных инвайтов');
+        throw new Error('No available invites');
       }
 
-      console.log('Discord инвайт получен успешно:', inviteData.code);
+      console.log('Discord invite successfully received:', inviteData.code);
       
       setState(prev => ({
         ...prev,
@@ -59,14 +59,14 @@ export const useDiscordInvite = () => {
       }));
 
     } catch (err: any) {
-      console.error('Ошибка получения Discord инвайта:', err);
+      console.error('Error while getting Discord invite:', err);
       
-      let errorMessage = 'Не удалось получить Discord инвайт';
+      let errorMessage = 'Failed to get Discord invite';
       
       if (err.message.includes('пуле')) {
-        errorMessage = 'В данный момент нет доступных инвайтов. Пожалуйста, свяжитесь с администратором.';
+        errorMessage = 'There are no invites available at the moment. Please contact the administrator.';
       } else if (err.message.includes('configuration')) {
-        errorMessage = 'Проблема с конфигурацией сервера. Пожалуйста, попробуйте позже.';
+        errorMessage = 'Server configuration issue. Please try again later.';
       } else if (err.message) {
         errorMessage = err.message;
       }

@@ -115,7 +115,7 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ transaction, onReset }) => {
           {!hasRequested && (
             <>
               <p className="text-gray-700 mb-6">
-                Нажмите на кнопку ниже, чтобы получить одноразовую ссылку для присоединения к нашему приватному Discord серверу
+                Click the button below to get a one-time link to join our private Discord server
               </p>
               <button
                 onClick={getDiscordInvite}
@@ -127,7 +127,7 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ transaction, onReset }) => {
                 ) : (
                   <DiscordIcon className="h-6 w-6" />
                 )}
-                <span>{isLoading ? 'Получение инвайта...' : 'Получить Discord Инвайт'}</span>
+                <span>{isLoading ? 'Getting invite…...' : 'Get Discord Invite'}</span>
                 {!isLoading && <ArrowRight className="h-5 w-5" />}
               </button>
             </>
@@ -136,7 +136,7 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ transaction, onReset }) => {
           {hasRequested && inviteUrl && (
             <>
               <p className="text-green-700 mb-6 font-medium">
-                ✅ Ваша одноразовая ссылка готова! Нажмите кнопку ниже, чтобы перейти в Discord.
+                ✅ Your one-time link is ready! Click the button below to go to Discord
               </p>
               <div className="space-y-4">
                 <button
@@ -144,20 +144,13 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ transaction, onReset }) => {
                   className="inline-flex items-center space-x-3 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   <DiscordIcon className="h-6 w-6" />
-                  <span>Перейти в Discord</span>
+                  <span>Go to Discord</span>
                   <ExternalLink className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={resetState}
-                  className="ml-4 inline-flex items-center space-x-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg transition-all duration-200"
-                >
-                  <RefreshCw className="h-4 w-4" />
-                  <span>Получить новый инвайт</span>
                 </button>
               </div>
               <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  ⚠️ Эта ссылка одноразовая и будет недоступна после использования.
+                  ⚠️ This link is one-time and will be unavailable after use
                 </p>
               </div>
             </>
@@ -168,7 +161,7 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ transaction, onReset }) => {
               <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start space-x-3">
                 <AlertCircle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
                 <div className="text-left">
-                  <h3 className="font-medium text-red-800 mb-1">Ошибка получения инвайта</h3>
+                  <h3 className="font-medium text-red-800 mb-1">Error retrieving invite</h3>
                   <p className="text-sm text-red-700">{error}</p>
                 </div>
               </div>
@@ -180,7 +173,7 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ transaction, onReset }) => {
                 className="inline-flex items-center space-x-3 bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <RefreshCw className="h-6 w-6" />
-                <span>Попробовать снова</span>
+                <span>Try again</span>
               </button>
             </>
           )}

@@ -309,7 +309,7 @@ const CryptoWalletApp: React.FC = () => {
       dispatch({ type: 'SET_PAYMENT_ADDRESS', payload: paymentAddress });
     } catch (error) {
       console.error('Ошибка генерации адреса:', error);
-      dispatch({ type: 'SET_ERROR', payload: 'Ошибка генерации адреса платежа' });
+      dispatch({ type: 'SET_ERROR', payload: 'Payment address generation error' });
     }
     
     // Scroll to top of page
@@ -425,7 +425,7 @@ const CryptoWalletApp: React.FC = () => {
                   onClick={handleGoBack}
                   className="relative z-50 p-3 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all duration-200 hover:scale-105 border border-gray-200 hover:border-gray-300 shadow-sm"
                   style={{ minWidth: '48px', minHeight: '48px' }}
-                  title="Назад к предыдущему шагу"
+                  title="Back to previous step"
                 >
                   <ArrowLeft className="h-6 w-6" />
                 </button>
@@ -600,7 +600,7 @@ const CryptoWalletApp: React.FC = () => {
       <button
         onClick={jumpToFinalStep}
         className="fixed bottom-8 right-8 p-4 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-50 border-2 border-white/20 backdrop-blur-sm animate-pulse"
-        title="DEBUG: Перейти к финальному экрану"
+        title="DEBUG: Go to final screen"
         style={{ 
           minWidth: '56px', 
           minHeight: '56px'
