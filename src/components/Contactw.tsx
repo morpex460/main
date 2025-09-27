@@ -24,7 +24,7 @@ const Contact = () => {
       platform: "Discord",
       icon: Users,
       handle: "@yypstrade",
-      url: "https://discord.gg/yypstrade",
+      url: "https://discord.com/users/969898192466485329",
       color: "text-indigo-500"
     },
     {
@@ -37,8 +37,8 @@ const Contact = () => {
     {
       platform: "Instagram",
       icon: Instagram,
-      handle: "@yyps.trade",
-      url: "https://instagram.com/yyps.trade",
+      handle: "@yypstrade",
+      url: "https://instagram.com/yypstrade",
       color: "text-pink-500"
     }
   ];
